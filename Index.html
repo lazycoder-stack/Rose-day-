@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Rose Day ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 40px 16px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .rose {
+      font-size: 72px;
+      animation: pulse 2s infinite;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-top: 10px;
+    }
+
+    h2 {
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
+      font-weight: 300;
+      margin: 15px 0 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: slideUp 1.5s ease;
+    }
+
+    .card p {
+      font-size: clamp(1rem, 3.8vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    .love-note {
+      margin-top: 25px;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 500;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 34px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.1rem;
+      background: #fff;
+      color: #ff4d6d;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .hidden-message {
+      display: none;
+      margin-top: 25px;
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      animation: fadeIn 1.5s ease;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .petal {
+      position: fixed;
+      top: -40px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="rose">🌹</div>
+
+    <h1>Happy Rose Day, My Love ❤️</h1>
+    <h2>Every rose carries my heart to you</h2>
+
+    <div class="card">
+      <p>
+        This rose is not just a flower.  
+        It holds my love, my honesty, my regrets,  
+        and my promise to never stop choosing you.
+        <br><br>
+        If love is about effort —  
+        then this is me, trying again… for *us*.
+      </p>
+
+      <div class="love-note">
+        You will always be my favorite feeling 🌸
+      </div>
+
+      <button onclick="showMessage()">Tap to read my heart 💌</button>
+
+      <div class="hidden-message" id="hiddenMessage">
+        No matter how many storms we face,  
+        my heart still knows only one name — yours.  
+        If I get one more chance,  
+        I’ll love you better than before ❤️
+      </div>
+    </div>
+
+    <footer>
+      Made with ❤️ only for you
+    </footer>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("hiddenMessage").style.display = "block";
+    }
+
+    // Rose petals
+    for (let i = 0; i < 20; i++) {
+      const petal = document.createElement("div");
+      petal.className = "petal";
+      petal.innerHTML = "🌹";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+      petal.style.fontSize = 16 + Math.random() * 16 + "px";
+      document.body.appendChild(petal);
+    }
+  </script>
+
+</body>
+</html>
