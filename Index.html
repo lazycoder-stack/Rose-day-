@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Rose Day ❤️</title>
 
   <style>
@@ -14,66 +14,73 @@
     }
 
     body {
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
       min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
       color: #fff;
       overflow-x: hidden;
+      transition: background 1.5s ease;
+    }
+
+    body.love-mode {
+      background: url("her.jpg") center/cover no-repeat fixed;
+    }
+
+    .overlay {
+      min-height: 100vh;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
     .container {
-      padding: 40px 16px;
       text-align: center;
-      max-width: 900px;
-      margin: auto;
-      position: relative;
+      max-width: 800px;
+      width: 100%;
       z-index: 2;
     }
 
     .rose {
-      font-size: 72px;
+      font-size: 70px;
       animation: pulse 2s infinite;
     }
 
     h1 {
       font-size: clamp(2rem, 5vw, 3rem);
-      margin-top: 10px;
+      margin: 15px 0;
     }
 
     h2 {
-      font-size: clamp(1rem, 3.5vw, 1.4rem);
       font-weight: 300;
-      margin: 15px 0 30px;
+      margin-bottom: 30px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255,255,255,0.15);
       backdrop-filter: blur(10px);
       border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 28px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
       animation: slideUp 1.5s ease;
     }
 
-    .card p {
-      font-size: clamp(1rem, 3.8vw, 1.2rem);
-      line-height: 1.8;
-    }
-
-    .love-note {
-      margin-top: 25px;
-      font-size: clamp(1.1rem, 4vw, 1.4rem);
-      font-weight: 500;
+    .message {
+      display: none;
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
+      line-height: 1.9;
+      animation: fadeIn 2s ease;
     }
 
     button {
-      margin-top: 30px;
-      padding: 14px 34px;
+      margin-top: 25px;
+      padding: 14px 36px;
       border-radius: 30px;
       border: none;
       font-size: 1.1rem;
+      cursor: pointer;
       background: #fff;
       color: #ff4d6d;
-      cursor: pointer;
       transition: transform 0.3s ease;
     }
 
@@ -81,25 +88,12 @@
       transform: scale(1.05);
     }
 
-    .hidden-message {
-      display: none;
-      margin-top: 25px;
-      font-size: clamp(1rem, 3.5vw, 1.3rem);
-      animation: fadeIn 1.5s ease;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
     .petal {
       position: fixed;
       top: -40px;
-      font-size: 20px;
+      font-size: 22px;
       animation: fall linear infinite;
-      opacity: 0.7;
+      opacity: 0.85;
       z-index: 1;
     }
 
@@ -109,14 +103,14 @@
       100% { transform: scale(1); }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     @keyframes slideUp {
       from { transform: translateY(40px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     @keyframes fall {
@@ -126,57 +120,58 @@
 </head>
 <body>
 
+<div class="overlay">
   <div class="container">
-    <div class="rose">🌹</div>
 
+    <div class="rose">🌹</div>
     <h1>Happy Rose Day, My Love ❤️</h1>
-    <h2>Every rose carries my heart to you</h2>
+    <h2>This rose is from my heart to yours</h2>
 
     <div class="card">
-      <p>
-        This rose is not just a flower.  
-        It holds my love, my honesty, my regrets,  
-        and my promise to never stop choosing you.
+      <button onclick="showLove()">Tap to read my heart 💌</button>
+
+      <div class="message" id="loveMessage">
+        Hey sweetheart… the queen of my heart ❤️  
         <br><br>
-        If love is about effort —  
-        then this is me, trying again… for *us*.
-      </p>
-
-      <div class="love-note">
-        You will always be my favorite feeling 🌸
-      </div>
-
-      <button onclick="showMessage()">Tap to read my heart 💌</button>
-
-      <div class="hidden-message" id="hiddenMessage">
-        No matter how many storms we face,  
-        my heart still knows only one name — yours.  
-        If I get one more chance,  
-        I’ll love you better than before ❤️
+        I may not be able to give you a rose today because I’m far away from you,  
+        but distance can never stop me from loving you  
+        or from making efforts for you.  
+        <br><br>
+        You are my jaan, my queen, my life, my princess.  
+        <br><br>
+        And honestly… how can I give you a rose  
+        when you yourself are more beautiful than one? 🌹  
+        <br><br>
+        <b>गुलाब जैसी हो, गुलाब लगती हो 🌹❤️</b><br>
+        <b>हल्का सा भी मुस्कुरा दो, लाजवाब लगती हो ❤️</b>
+        <br><br>
+        No matter where I am,  
+        my heart will always choose <b>you</b>.
       </div>
     </div>
 
-    <footer>
-      Made with ❤️ only for you
-    </footer>
   </div>
+</div>
 
-  <script>
-    function showMessage() {
-      document.getElementById("hiddenMessage").style.display = "block";
-    }
+<script>
+  function showLove() {
+    document.body.classList.add("love-mode");
+    document.getElementById("loveMessage").style.display = "block";
+    createPetals();
+  }
 
-    // Rose petals
-    for (let i = 0; i < 20; i++) {
+  function createPetals() {
+    for (let i = 0; i < 25; i++) {
       const petal = document.createElement("div");
       petal.className = "petal";
       petal.innerHTML = "🌹";
       petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = 5 + Math.random() * 5 + "s";
-      petal.style.fontSize = 16 + Math.random() * 16 + "px";
+      petal.style.animationDuration = 5 + Math.random() * 6 + "s";
+      petal.style.fontSize = 16 + Math.random() * 20 + "px";
       document.body.appendChild(petal);
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
