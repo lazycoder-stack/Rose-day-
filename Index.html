@@ -21,34 +21,55 @@
       transition: background 1.5s ease;
     }
 
+    /* Love mode background (her image) */
     body.love-mode {
-      background: url("20251020_211707.jpg") center/cover no-repeat fixed;
+      background:
+        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.25)),
+        url("her.jpg") center / cover no-repeat fixed;
     }
 
     .overlay {
       min-height: 100vh;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.35);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
+      transition: background 1.5s ease;
+    }
+
+    body.love-mode .overlay {
+      background: linear-gradient(
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0.35)
+      );
     }
 
     .container {
-      text-align: center;
       max-width: 800px;
       width: 100%;
+      text-align: center;
       z-index: 2;
     }
 
+    #intro {
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+
     .rose {
-      font-size: 70px;
+      font-size: 72px;
       animation: pulse 2s infinite;
     }
 
     h1 {
       font-size: clamp(2rem, 5vw, 3rem);
-      margin: 15px 0;
+      margin: 12px 0;
     }
 
     h2 {
@@ -57,23 +78,15 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      border-radius: 22px;
       padding: 28px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
       animation: slideUp 1.5s ease;
     }
 
-    .message {
-      display: none;
-      font-size: clamp(1rem, 3.5vw, 1.25rem);
-      line-height: 1.9;
-      animation: fadeIn 2s ease;
-    }
-
     button {
-      margin-top: 25px;
       padding: 14px 36px;
       border-radius: 30px;
       border: none;
@@ -86,6 +99,14 @@
 
     button:hover {
       transform: scale(1.05);
+    }
+
+    .message {
+      display: none;
+      margin-top: 25px;
+      font-size: clamp(1rem, 3.6vw, 1.25rem);
+      line-height: 1.9;
+      animation: fadeIn 2s ease;
     }
 
     .petal {
@@ -118,60 +139,64 @@
     }
   </style>
 </head>
+
 <body>
+  <div class="overlay">
+    <div class="container">
 
-<div class="overlay">
-  <div class="container">
-
-    <div class="rose">🌹</div>
-    <h1>Happy Rose Day, My Love ❤️</h1>
-    <h2>This rose is from my heart to yours</h2>
-
-    <div class="card">
-      <button onclick="showLove()">Tap to read my heart 💌</button>
-
-      <div class="message" id="loveMessage">
-        Hey sweetheart… the queen of my heart ❤️  
-        <br><br>
-        I may not be able to give you a rose today because I’m far away from you,  
-        but distance can never stop me from loving you  
-        or from making efforts for you.  
-        <br><br>
-        You are my jaan, my queen, my life, my princess.  
-        <br><br>
-        And honestly… how can I give you a rose  
-        when you yourself are more beautiful than one? 🌹  
-        <br><br>
-        <b>गुलाब जैसी हो, गुलाब लगती हो 🌹❤️</b><br>
-        <b>हल्का सा भी मुस्कुरा दो, लाजवाब लगती हो ❤️</b>
-        <br><br>
-        No matter where I am,  
-        my heart will always choose <b>you</b>.
+      <!-- INTRO -->
+      <div id="intro">
+        <div class="rose">🌹</div>
+        <h1>Happy Rose Day, My Love ❤️</h1>
+        <h2>This rose is from my heart to yours</h2>
       </div>
+
+      <!-- MESSAGE CARD -->
+      <div class="card">
+        <button onclick="showLove()">Tap to read my heart 💌</button>
+
+        <div class="message" id="loveMessage">
+          Hey sweetheart… the queen of my heart ❤️  
+          <br><br>
+          I may not be able to give you a rose today because I’m far away from you,  
+          but distance can never stop me from loving you  
+          or from making efforts for you.  
+          <br><br>
+          You are my jaan, my queen, my life, my princess.  
+          <br><br>
+          And honestly… how can I give you a rose  
+          when you yourself are more beautiful than one? 🌹  
+          <br><br>
+          <b>गुलाब जैसी हो, गुलाब लगती हो 🌹❤️</b><br>
+          <b>हल्का सा भी मुस्कुरा दो, लाजवाब लगती हो ❤️</b>
+          <br><br>
+          No matter where I am,  
+          my heart will always choose <b>you</b>.
+        </div>
+      </div>
+
     </div>
-
   </div>
-</div>
 
-<script>
-  function showLove() {
-    document.body.classList.add("love-mode");
-    document.getElementById("loveMessage").style.display = "block";
-    createPetals();
-  }
-
-  function createPetals() {
-    for (let i = 0; i < 25; i++) {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.innerHTML = "🌹";
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = 5 + Math.random() * 6 + "s";
-      petal.style.fontSize = 16 + Math.random() * 20 + "px";
-      document.body.appendChild(petal);
+  <script>
+    function showLove() {
+      document.body.classList.add("love-mode");
+      document.getElementById("intro").classList.add("fade-out");
+      document.getElementById("loveMessage").style.display = "block";
+      createPetals();
     }
-  }
-</script>
 
+    function createPetals() {
+      for (let i = 0; i < 25; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.innerHTML = "🌹";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = 5 + Math.random() * 6 + "s";
+        petal.style.fontSize = 16 + Math.random() * 20 + "px";
+        document.body.appendChild(petal);
+      }
+    }
+  </script>
 </body>
 </html>
